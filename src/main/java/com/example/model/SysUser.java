@@ -7,21 +7,12 @@ package com.example.model;
  */
 public class SysUser {
 
-    private Integer userId;
 
     private String userAccount;//用户账号
 
     private String userPassword;//用户密码
 
     private Integer UserState;//用户状态
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
     public String getUserAccount() {
         return userAccount;

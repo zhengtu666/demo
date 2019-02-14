@@ -1,6 +1,7 @@
 package com.example.service.spi;
 
 import com.example.model.SysRole;
+import com.example.model.SysUser;
 import com.example.service.core.spi.IBaseService;
 import org.apache.catalina.User;
 
@@ -10,4 +11,5 @@ import org.apache.catalina.User;
  * @date: 2018/12/13
  */
 public interface IUserService extends IBaseService<User,Long> {
+    SysUser selectByAccount(String username);
 }

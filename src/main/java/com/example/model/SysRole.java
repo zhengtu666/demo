@@ -6,21 +6,12 @@ package com.example.model;
  * @date: 2018/12/13
  */
 public class SysRole {
-    private Integer sysRoleId;
 
     private Integer sysRoleAva; //角色是否生效
 
     private String sysRoleDes;//角色描述
 
     private String sysRoleName;//角色名称
-
-    public Integer getSysRoleId() {
-        return sysRoleId;
-    }
-
-    public void setSysRoleId(Integer sysRoleId) {
-        this.sysRoleId = sysRoleId;
-    }
 
     public Integer getSysRoleAva() {
         return sysRoleAva;

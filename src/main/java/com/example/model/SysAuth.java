@@ -1,13 +1,14 @@
 package com.example.model;
 
+import com.example.bean.BaseEntity;
+
 /**
  * @author: liuhuan
  * @Description: 权限表，定义了一些操作访问权限信息。
  * @date: 2018/12/13
  */
-public class SysAuth {
+public class SysAuth extends BaseEntity {
 
-    private Integer sysAuthId;
 
     private String sysAuthCode; //权限编号
 
@@ -19,17 +20,7 @@ public class SysAuth {
 
     private Integer sysAuthAva; //权限是否有效
 
-    private Integer sysAuthType; //权限类型。菜单还是按钮
-
     private String sysAuthDes; //权限描述
-
-    public Integer getSysAuthId() {
-        return sysAuthId;
-    }
-
-    public void setSysAuthId(Integer sysAuthId) {
-        this.sysAuthId = sysAuthId;
-    }
 
     public String getSysAuthCode() {
         return sysAuthCode;
@@ -69,14 +60,6 @@ public class SysAuth {
 
     public void setSysAuthAva(Integer sysAuthAva) {
         this.sysAuthAva = sysAuthAva;
-    }
-
-    public Integer getSysAuthType() {
-        return sysAuthType;
-    }
-
-    public void setSysAuthType(Integer sysAuthType) {
-        this.sysAuthType = sysAuthType;
     }
 
     public String getSysAuthDes() {

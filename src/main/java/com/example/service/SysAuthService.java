@@ -4,6 +4,8 @@ import com.example.model.SysAuth;
 import com.example.service.core.BaseService;
 import com.example.service.spi.ISysAuthService;
 
+import java.util.List;
+
 /**
  * @author: liuhuan
  * @Description: 权限
@@ -11,4 +13,8 @@ import com.example.service.spi.ISysAuthService;
  */
 public class SysAuthService extends BaseService<SysAuth,Long> implements ISysAuthService {
 
+    @Override
+    public List<SysAuth> queryByUserId(Integer userId) {
+        return null;
+    }
 }

@@ -60,7 +60,7 @@ public class ShiroRealm extends AuthorizingRealm {
             }
         }catch (Exception e){
             e.printStackTrace();
-            logger.error(ExceptionUtils.getFullStackTrace(e));
+            logger.error(e.getMessage());
         }
         return authorizationInfo;
     }
