@@ -14,7 +14,7 @@ import java.util.List;
 public class SysAuthService extends BaseService<SysAuth,Long> implements ISysAuthService {
 
     @Override
-    public List<SysAuth> queryByUserId(Integer userId) {
+    public List<SysAuth> queryByUserId(Long userId) {
         return null;
     }
 }

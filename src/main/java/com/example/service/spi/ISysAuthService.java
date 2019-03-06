@@ -11,5 +11,5 @@ import java.util.List;
  * @date: 2018/12/13
  */
 public interface ISysAuthService extends IBaseService<SysAuth,Long> {
-    List<SysAuth> queryByUserId(Integer userId);
+    List<SysAuth> queryByUserId(Long userId);
 }

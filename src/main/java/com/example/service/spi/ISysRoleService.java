@@ -12,5 +12,5 @@ import java.util.List;
  * @date: 2018/12/13
  */
 public interface ISysRoleService extends IBaseService<SysRole,Long> {
-    List<SysRole> selectRoleByUser(Integer userId);
+    List<SysRole> selectRoleByUser(Long userId);
 }

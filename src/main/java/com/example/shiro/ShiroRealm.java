@@ -49,12 +49,12 @@ public class ShiroRealm extends AuthorizingRealm {
         SysUser user = (SysUser) principals.getPrimaryPrincipal();
         try {
             //注入角色(查询所有的角色注入控制器）
-            List<SysRole> list = sysRoleService.selectRoleByUser(user.getUserId());
+            List<SysRole> list = sysRoleService.selectRoleByUser(user.getId());
             for (SysRole role: list){
                 authorizationInfo.addRole(role.getSysRoleName());
             }
             //注入角色所有权限（查询用户所有的权限注入控制器）
-            List<SysAuth> sysAuths = authService.queryByUserId(user.getUserId());
+            List<SysAuth> sysAuths = authService.queryByUserId(user.getId());
             for(SysAuth sysAuth:sysAuths){
                 authorizationInfo.addStringPermission(sysAuth.getSysAuthPermission());
             }

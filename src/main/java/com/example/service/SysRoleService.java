@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class SysRoleService extends BaseService<SysRole,Long> implements ISysRoleService {
     @Override
-    public List<SysRole> selectRoleByUser(Integer userId) {
+    public List<SysRole> selectRoleByUser(Long userId) {
         return null;
     }
 }
