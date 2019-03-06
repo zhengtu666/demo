@@ -1,11 +1,13 @@
 package com.example.model;
 
+import com.example.bean.BaseEntity;
+
 /**
  * @author: liuhuan
  * @Description: 用来存储用户的密码，用户名等等信息
  * @date: 2018/12/13
  */
-public class SysUser {
+public class SysUser extends BaseEntity {
 
 
     private String userAccount;//用户账号

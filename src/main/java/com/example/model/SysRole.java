@@ -1,11 +1,13 @@
 package com.example.model;
 
+import com.example.bean.BaseEntity;
+
 /**
  * @author: liuhuan
  * @Description: 角色表，存放所有的角色信息
  * @date: 2018/12/13
  */
-public class SysRole {
+public class SysRole extends BaseEntity {
 
     private Integer sysRoleAva; //角色是否生效
 
