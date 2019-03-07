@@ -13,10 +13,9 @@ import java.util.List;
  * @Description: 基类服务实现
  * @date: 2018/12/13
  */
-@Service
 public class BaseService<T,PK extends Serializable> implements IBaseService<T,PK> {
 
-    @Autowired
+    //@Autowired
     private CoreMapper coreMapper;
 
 
