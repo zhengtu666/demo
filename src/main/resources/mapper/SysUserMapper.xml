@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.dao.SysAuthMapper">
-  <resultMap id="BaseResultMap" type="com.example.model.SysAuth">
-
+<mapper namespace="com.example.dao.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.SysUser">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="app_type" jdbcType="INTEGER" property="appType" />
-    <result column="editor" jdbcType="BIGINT" property="editor" />
-    <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
-    <result column="link" jdbcType="VARCHAR" property="link" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="user_account" jdbcType="VARCHAR" property="userAccount" />
+    <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
   </resultMap>
-
+  <resultMap id="sysUserDtoResultMap" type="com.example.dto.SysUserDto" extends="BaseResultMap"/>
  <!-- <insert id="save" parameterType="com.duia.model.duiba.AppConfig" keyProperty="id" useGeneratedKeys="true">
     insert into app_config(app_type,editor,pic_url,link,create_time,status)
     VALUES (#{appType},#{editor},#{picUrl},#{link},#{createTime},#{status})
@@ -27,8 +23,8 @@
     </trim>
     where id=#{id}
   </update>
-
-  <select id="findByApp" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select * from app_config where app_type=#{apptype} and status = 1
-  </select>-->
+-->
+  <select id="findByAccount" resultMap="sysUserDtoResultMap" parameterType="string">
+    select id, user_account , user_password,  user_state from sys_user where user_account = #{apptype}
+  </select>
 </mapper>

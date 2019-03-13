@@ -1,22 +1,21 @@
 package com.example.shiro;
 
+import com.example.constant.Constants;
 import com.example.model.SysAuth;
 import com.example.model.SysRole;
 import com.example.model.SysUser;
 import com.example.service.spi.ISysAuthService;
 import com.example.service.spi.ISysRoleService;
-import com.example.service.spi.IUserService;
+import com.example.service.spi.ISysUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.tomcat.util.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -29,7 +28,7 @@ public class ShiroRealm extends AuthorizingRealm {
     private static Logger logger = LoggerFactory.getLogger(ShiroRealm.class);
 
     @Autowired
-    private IUserService userService;
+    private ISysUserService userService;
 
     @Autowired
     private ISysRoleService sysRoleService;
@@ -83,20 +82,27 @@ public class ShiroRealm extends AuthorizingRealm {
         String password = new String((char[]) token.getCredentials());
         //通过username从数据库中查找 User对象，如果找到，没找到.
         //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
+
         SysUser user = userService.selectByAccount(username);
         if(null == user){
+            // 未知账户
             throw new UnknownAccountException();
         }else {
+            // 密码正确
             if(password.equals(user.getUserPassword())){
-                if(0 == user.getUserState()){
+                if(Constants.User.USER_STATE_LOCK == user.getUserState()){
+                    // 账户被锁定
                     throw new LockedAccountException();
-                }else if (2 == user.getUserState()){
+                }else if (Constants.User.USER_STATE_DISABLE == user.getUserState()){
+                    // 不可用账户
                     throw new DisabledAccountException();
                 }else{
+                    // 验证通过
                     SimpleAuthenticationInfo authorizationInfo = new SimpleAuthenticationInfo(user,user.getUserPassword().toCharArray(),getName());
                     return authorizationInfo;
                 }
             } else {
+                // 密码错误
                 throw new IncorrectCredentialsException();
             }
         }

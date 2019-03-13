@@ -1,6 +1,6 @@
 package com.example.model;
 
-import com.example.bean.BaseEntity;
+import com.example.common.bean.BaseEntity;
 
 /**
  * @author: liuhuan
@@ -14,7 +14,7 @@ public class SysUser extends BaseEntity {
 
     private String userPassword;//用户密码
 
-    private Integer UserState;//用户状态
+    private Integer userState;//用户状态
 
     public String getUserAccount() {
         return userAccount;
@@ -33,10 +33,10 @@ public class SysUser extends BaseEntity {
     }
 
     public Integer getUserState() {
-        return UserState;
+        return userState;
     }
 
     public void setUserState(Integer userState) {
-        UserState = userState;
+        this.userState = userState;
     }
 }

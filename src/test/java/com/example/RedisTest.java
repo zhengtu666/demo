@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.common.RedisUtil;
+import com.example.common.util.RedisUtil;
 import redis.clients.jedis.Jedis;
 
 import java.util.HashMap;

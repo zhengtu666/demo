@@ -1,0 +1,50 @@
+﻿
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+<form name="" action="/user/login" method="post">
+	<table align="center">
+		<tr>
+			<td>
+				用户名<input type="text" name="username" />
+			</td>
+			<td>
+				密码<input type="password" name="password"/>
+			</td>
+
+			<td>
+				<input type="submit" id="login" value="登录"/>
+			</td>
+
+		</tr>
+
+	</table>
+
+</form>
+
+
+<script src="../../static/js/jquery-2.1.1.min.js"></script>
+<script>
+    /*这里是提交表单前的非空校验*/
+    $("form").submit(function () {
+        var first = $("input[name='username']").val();
+        var last = $("input[name='password']").val();
+
+        if (first == "" || first == null || first == undefined) {
+            alert("first");
+            return false;/*阻止表单提交*/
+        } else if (last == "" || last == null || last == undefined) {
+            alert("last");
+            return false;/*阻止表单提交*/
+        } else {
+            return true;
+        }
+    })
+</script>
+</body>
+</html>

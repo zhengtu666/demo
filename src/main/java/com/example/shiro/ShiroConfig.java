@@ -30,10 +30,11 @@ public class ShiroConfig {
         // 配置不会被拦截的链接 顺序判断
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/favicon.ico", "anon");
+        filterChainDefinitionMap.put("/user/login", "anon");
         //拦截其他所以接口
         filterChainDefinitionMap.put("/**", "authc");
         //配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
-        shiroFilterFactoryBean.setLoginUrl("/user/unlogin");
+        shiroFilterFactoryBean.setLoginUrl("/user/toLogin");
         // 登录成功后要跳转的链接 自行处理。不用shiro进行跳转
         // shiroFilterFactoryBean.setSuccessUrl("user/index");
         //未授权界面;

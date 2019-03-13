@@ -1,4 +1,4 @@
-package com.example.bean;
+package com.example.common.bean;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;

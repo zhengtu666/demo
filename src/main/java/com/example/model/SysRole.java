@@ -1,6 +1,6 @@
 package com.example.model;
 
-import com.example.bean.BaseEntity;
+import com.example.common.bean.BaseEntity;
 
 /**
  * @author: liuhuan
