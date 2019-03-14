@@ -39,7 +39,7 @@ public class UserController {
     @TimeAnn
     public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView) {
 
-        modelAndView.setViewName("/user/login.html");
+        modelAndView.setViewName("user/login");
         return modelAndView;
 
     }
@@ -55,7 +55,7 @@ public class UserController {
     @TimeAnn
     public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView, String username, String password) {
         if(null ==username || null ==password){
-            modelAndView.setViewName("redirect:/user/login");
+            modelAndView.setViewName("redirect:user/login");
             return modelAndView;
         }
 
@@ -65,7 +65,7 @@ public class UserController {
 
         } catch (AuthenticationException ex) {
             System.out.println("登陆失败: " + ex.getMessage());
-            modelAndView.setViewName("redirect:/user/login");
+            modelAndView.setViewName("redirect:user/login");
             modelAndView.addObject("message", "用户不存在");
             modelAndView.addObject("failuser", username);
             return modelAndView;
@@ -81,7 +81,7 @@ public class UserController {
             modelAndView.setViewName("redirect:"+url);
             return modelAndView;
         }
-        modelAndView.setViewName("redirect:/index");
+        modelAndView.setViewName("redirect:index");
         return modelAndView;
 
     }
