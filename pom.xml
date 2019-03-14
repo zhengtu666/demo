@@ -126,12 +126,12 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <properties>
-                <env>dev</env>
-            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <env>dev</env>
+            </properties>
         </profile>
         <profile>
             <id>prod</id>
