@@ -30,12 +30,12 @@ public class UserController {
 
     /**
      * @Author liuhuan
-     * @Description // 登录页面跳转
+     * @Description  登录页面跳转
      * @Date  2019/03/12
      * @Param [request, modelAndView]
      * @return org.springframework.web.servlet.ModelAndView
      **/
-    @RequestMapping("/toLogin")
+    @RequestMapping("/login")
     @TimeAnn
     public ModelAndView toLogin(HttpServletRequest request, ModelAndView modelAndView) {
 
@@ -51,10 +51,13 @@ public class UserController {
      * @Param [request, modelAndView, username 用户名, password 密码]
      * @return org.springframework.web.servlet.ModelAndView
      **/
-    @RequestMapping("/login")
+    @RequestMapping("/userLogin")
     @TimeAnn
     public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView, String username, String password) {
-
+        if(null ==username || null ==password){
+            modelAndView.setViewName("redirect:/user/login");
+            return modelAndView;
+        }
 
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -62,9 +65,10 @@ public class UserController {
 
         } catch (AuthenticationException ex) {
             System.out.println("登陆失败: " + ex.getMessage());
-            modelAndView.setViewName("/user/login");
+            modelAndView.setViewName("redirect:/user/login");
             modelAndView.addObject("message", "用户不存在");
             modelAndView.addObject("failuser", username);
+            return modelAndView;
         }
         // 登录成功后重定向
         // 如果是别个页面，登陆成功后跳转到开始那个页面，否则返回首页
