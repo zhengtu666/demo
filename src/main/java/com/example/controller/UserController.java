@@ -37,9 +37,9 @@ public class UserController {
      **/
     @RequestMapping("/login")
     @TimeAnn
-    public ModelAndView toLogin(HttpServletRequest request, ModelAndView modelAndView) {
+    public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView) {
 
-        modelAndView.setViewName("/user/login");
+        modelAndView.setViewName("/user/login.html");
         return modelAndView;
 
     }
