@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class })
-@MapperScan("com.example.dao.mapper")
 public class DemoApplication{
 
     public static void main(String[] args) {

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * Created by chenqi on 2017/7/7.
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = "com.example")
+@MapperScan("com.example.dao.mapper")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     /**

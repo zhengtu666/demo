@@ -53,7 +53,7 @@ public class UserController {
      **/
     @RequestMapping("/userLogin")
     @TimeAnn
-    public ModelAndView login(HttpServletRequest request, ModelAndView modelAndView, String username, String password) {
+    public ModelAndView userLogin(HttpServletRequest request, ModelAndView modelAndView, String username, String password) {
         if(null ==username || null ==password){
             modelAndView.setViewName("redirect:user/login");
             return modelAndView;

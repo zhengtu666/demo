@@ -102,7 +102,7 @@
     <logger name="java.sql.ResultSet" level="debug" />
     <logger name="org.apache.shiro" level="debug" />
 
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ERROR-OUT"/>
         <appender-ref ref="INFO-OUT"/>
